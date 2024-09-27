@@ -1,0 +1,7 @@
+﻿@model Apartamento
+
+<h3>Detalle de Apartamento</h3>
+<p>ID: @Model.Id</p>
+<p>Piso: @Model.Piso</p>
+<p>Elevador: @(Model.TieneElevador ? "Sí" : "No")</p>
+<p>Precio: @Model.Precio</p>

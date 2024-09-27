@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Apartamento>
+
+<h3>Lista de Apartamentos</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Piso</th>
+            <th>Elevador</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var apartamento in Model)
+        {
+            <tr class="propertyItem" data-id="@apartamento.Id">
+                <td>@apartamento.Id</td>
+                <td>@apartamento.Piso</td>
+                <td>@(apartamento.TieneElevador ? "Sí" : "No")</td>
+                <td>@apartamento.Precio</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarea04_Consigna2", "Tarea04_Consigna2\Tarea04_Consigna2\Tarea04_Consigna2.csproj", "{9CE3D890-24DD-4080-BD64-C9B914FD8223}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarea04_Consigna2.Client", "Tarea04_Consigna2\Tarea04_Consigna2.Client\Tarea04_Consigna2.Client.csproj", "{C0F71ED4-FAB3-44C5-9963-701C948B2D78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CE3D890-24DD-4080-BD64-C9B914FD8223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE3D890-24DD-4080-BD64-C9B914FD8223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE3D890-24DD-4080-BD64-C9B914FD8223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE3D890-24DD-4080-BD64-C9B914FD8223}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0F71ED4-FAB3-44C5-9963-701C948B2D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0F71ED4-FAB3-44C5-9963-701C948B2D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0F71ED4-FAB3-44C5-9963-701C948B2D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0F71ED4-FAB3-44C5-9963-701C948B2D78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88E1B241-8434-4D18-B0A4-4D2423C07C20}
+	EndGlobalSection
+EndGlobal

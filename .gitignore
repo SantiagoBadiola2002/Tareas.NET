@@ -1,0 +1,74 @@
+# Archivos generados por Visual Studio
+.vs/
+.vscode/
+.idea/
+
+# Binarios y artefactos de compilación
+bin/
+obj/
+out/
+
+# Dependencias de paquetes
+packages/
+*.nupkg
+*.snupkg
+
+# Archivos de configuración locales
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.csproj.user
+
+# Caches de Rider
+.idea/
+.idea_modules/
+*.sln.iml
+
+# Configuración de Mono
+.mono/
+
+# Archivos de depuración
+*.log
+*.tlog
+*.log*
+
+# Publicación y despliegue
+publish/
+*.publish.xml
+
+# Sistema operativo
+[Tt]humbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.DS_Store
+*.directory
+
+# Archivos de lock y restauración
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.lock.json
+
+# Directorios de publicación de ASP.NET
+wwwroot/
+
+# Archivos generados por NuGet
+*.nupkg
+*.snupkg
+
+# Archivos de test y de configuración de herramientas de CI
+TestResults/
+*.coverage
+*.coveragexml
+*.config
+coverage.*
+coverage-results/
+
+# Archivo de configuración de Rider
+.idea/
+
+# Directorios de funciones y servicios de Azure
+local.settings.json
+storage/
+appsettings.development.json

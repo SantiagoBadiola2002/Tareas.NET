@@ -1,0 +1,16 @@
+﻿@model Tarea_02_c.Models.Libro
+
+@{
+    ViewData["Title"] = "Detalles del Libro";
+}
+
+<h1>@Model.Titulo</h1>
+
+<div>
+    <h3>Detalles</h3>
+    <p><strong>Autor:</strong> @Model.Autor</p>
+    <p><strong>ISBN:</strong> @Model.ISBN</p>
+</div>
+
+<a asp-action="GetAllLibros">Volver a la lista de libros</a>
+

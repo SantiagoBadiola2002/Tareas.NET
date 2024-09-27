@@ -1,0 +1,25 @@
+﻿@model IEnumerable<ChacraTuristica>
+
+<h3>Lista de Chacras Turísticas</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Área</th>
+            <th>Piscina</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chacra in Model)
+        {
+            <tr class="propertyItem" data-id="@chacra.Id">
+                <td>@chacra.Id</td>
+                <td>@chacra.Area</td>
+                <td>@(chacra.TienePiscina ? "Sí" : "No")</td>
+                <td>@chacra.Precio</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

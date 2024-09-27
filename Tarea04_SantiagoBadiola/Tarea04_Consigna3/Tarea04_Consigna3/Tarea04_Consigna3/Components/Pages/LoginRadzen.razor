@@ -1,0 +1,66 @@
+﻿@page "/login"
+@rendermode InteractiveServer
+
+@using Microsoft.AspNetCore.SignalR.Client
+@using Microsoft.AspNetCore.Components.Forms
+@inject NavigationManager Navigation
+
+<EditForm Model="loginModel" OnValidSubmit="OnLogin">
+    <RadzenFormField Text="Correo" Variant="Variant.Filled">
+        <RadzenTextBox @bind-Value="loginModel.Email" />
+    </RadzenFormField>
+
+    <RadzenFormField Text="Contraseña" Variant="Variant.Filled">
+        <RadzenPassword @bind-Value="loginModel.Password" />
+    </RadzenFormField>
+
+    <RadzenButton Text="Iniciar sesión" ButtonStyle="ButtonStyle.Primary" Type="submit" />
+</EditForm>
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+    private HubConnection hubConnection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Inicializar la conexión con el hub
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl(Navigation.ToAbsoluteUri("/loginHub"))  // URL del LoginHub
+            .Build();
+
+        // Suscribirse a la respuesta del servidor
+        hubConnection.On<bool>("LoginResult", (result) =>
+        {
+            if (result)
+            {
+                Console.WriteLine("Éxito");
+                Navigation.NavigateTo("/PaginaBienvenida"); 
+            }
+            else
+            {
+                Console.WriteLine("Inicio de sesión fallido");
+                Navigation.NavigateTo("/PaginaError");
+            }
+        });
+
+        await hubConnection.StartAsync();
+    }
+
+    private async Task OnLogin()
+    {
+        // Llamar al método Login del hub
+        await hubConnection.SendAsync("Login", loginModel.Email, loginModel.Password);
+    }
+
+    public void Dispose()
+    {
+        // Cerrar la conexión cuando el componente sea destruido
+        _ = hubConnection?.DisposeAsync();
+    }
+
+    public class LoginModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+}

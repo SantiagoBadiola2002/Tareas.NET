@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Casa>
+
+<h3>Lista de Casas</h3>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Habitaciones</th>
+            <th>Baños</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var casa in Model)
+        {
+            <tr class="propertyItem" data-id="@casa.Id">
+                <td>@casa.Id</td>
+                <td>@casa.NumeroHabitaciones</td>
+                <td>@casa.NumeroBanos</td>
+                <td>@casa.Precio</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

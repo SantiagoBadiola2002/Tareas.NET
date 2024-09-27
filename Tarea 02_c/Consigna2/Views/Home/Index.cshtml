@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        <h2>Seleccionar Tipo de Propiedad</h2>
+        <select id="propertyTypeSelector">
+            <option value="Casa">Casa</option>
+            <option value="Apartamento">Apartamento</option>
+            <option value="ChacraTuristica">Chacra Turística</option>
+        </select>
+    </div>
+
+    <div id="sectionA">
+        <!-- Aquí se cargará la tabla con las propiedades según el tipo seleccionado -->
+    </div>
+
+    <div id="sectionB">
+        <!-- Aquí se cargará la información detallada de la propiedad seleccionada -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Load initial data for Section A based on the selected property type
+            loadSectionA();
+
+            // Event handler for property type selection change
+            $('#propertyTypeSelector').change(function () {
+                loadSectionA();
+            });
+
+            function loadSectionA() {
+                var selectedType = $('#propertyTypeSelector').val();
+                $.ajax({
+                    url: `/${selectedType}/GetAll`, // Controller actions for fetching the general properties
+                    type: 'GET',
+                    success: function (data) {
+                        $('#sectionA').html(data);
+                    }
+                });
+            }
+
+            // Event delegation to handle clicks on properties in Section A
+            $('#sectionA').on('click', '.propertyItem', function () {
+                var propertyId = $(this).data('id');
+                var selectedType = $('#propertyTypeSelector').val();
+                loadSectionB(selectedType, propertyId);
+            });
+
+            function loadSectionB(propertyType, propertyId) {
+                $.ajax({
+                    url: `/${propertyType}/Ver/${propertyId}`, // Controller action to get detailed info
+                    type: 'GET',
+                    success: function (data) {
+                        $('#sectionB').html(data);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

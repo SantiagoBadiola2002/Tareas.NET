@@ -1,0 +1,20 @@
+﻿@model Tarea_02_c.Models.Libro
+
+@{
+    ViewData["Title"] = "Confirmar Eliminación";
+}
+
+<h1>Confirmar Eliminación</h1>
+
+<div>
+    <h3>@Model.Titulo</h3>
+    <p><strong>Autor:</strong> @Model.Autor</p>
+    <p><strong>ISBN:</strong> @Model.ISBN</p>
+</div>
+
+<form asp-action="ConfirmarBorrado" method="post">
+    <input type="hidden" asp-for="Titulo" />
+    <button type="submit" class="btn btn-danger">Borrar</button>
+    <a asp-action="GetAllLibros" class="btn btn-secondary">Cancelar</a>
+</form>
+
